@@ -1,0 +1,28 @@
+name: Artifact of .NET 8 Blazor App
+
+on:
+  workflow_dispatch:    
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore 
+
+      - name: Publish
+        run: dotnet publish -c Release -o ./publish
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: blazor-app
+          path: ./publish
