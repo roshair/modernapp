@@ -1,4 +1,4 @@
-name: Build .NET 8 Blazor App
+name: Publish .NET 8 Blazor App
 
 on:
   push:
