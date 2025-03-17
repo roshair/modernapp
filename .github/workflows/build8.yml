@@ -1,4 +1,4 @@
-name: Build and Deploy .NET 8 Blazor App to Azure App Service
+name: Build .NET 8 Blazor App
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:    
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
