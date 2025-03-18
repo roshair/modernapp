@@ -1,4 +1,4 @@
-name: Build and Deploy .NET 8 Blazor App to Azure App Service
+name: Multiple Jobs
 
 on:
   workflow_dispatch:    
