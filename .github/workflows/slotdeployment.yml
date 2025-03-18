@@ -1,4 +1,4 @@
-name: Multiple Jobs
+name: Slot Deployment
 
 on:
   workflow_dispatch:    
