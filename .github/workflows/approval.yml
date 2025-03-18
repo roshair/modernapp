@@ -1,4 +1,4 @@
-name: Multiple Jobs
+name: Approval and Environment
 
 on:
   workflow_dispatch:    
