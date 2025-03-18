@@ -7,7 +7,7 @@ env:
   AZURE_WEBAPP_NAME: "romaanwebappone"
   
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,4 +30,20 @@ jobs:
           name: blazor-app
           path: ./publish
 
-     
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: blazor-app
+          path: ./publish
+
+      - name: Deploy to Azure App Service
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.PUBLISH_SECRET }}
+          package: ./publish
