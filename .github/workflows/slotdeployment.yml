@@ -47,5 +47,5 @@ jobs:
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           slot-name: uat
-          publish-profile: ${{ secrets.PUBLISH_SECRET }}
+          publish-profile: ${{ secrets.PUBLISH_SLOT }}
           package: ./publish
