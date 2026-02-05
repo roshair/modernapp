@@ -27,10 +27,6 @@ public class AppDbContext : DbContext
             entity.HasIndex(o => new { o.Status, o.OrderDate })
                 .HasDatabaseName("IX_Orders_Status_OrderDate");
 
-            // Set default value for OrderDate
-            entity.Property(o => o.OrderDate)
-                .HasDefaultValueSql("GETUTCDATE()");
-
             // Set precision for TotalAmount to avoid truncation
             entity.Property(o => o.TotalAmount)
                 .HasPrecision(18, 2);

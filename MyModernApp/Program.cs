@@ -10,18 +10,21 @@ builder.Services.AddRazorPages();
 builder.Services.AddControllers();
 
 // Configure Entity Framework with SQL Server or SQLite
+// Use environment variable or config to determine provider
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var useSqlite = builder.Configuration.GetValue<bool>("UseSqlite", false) 
+    || builder.Environment.IsDevelopment() && connectionString!.StartsWith("Data Source=");
+
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    // Use SQLite for development (cross-platform), SQL Server for production
-    if (connectionString!.Contains("Data Source=") && !connectionString.Contains("Server="))
+    if (useSqlite)
     {
-        // SQLite connection
+        // SQLite connection - for development/testing
         options.UseSqlite(connectionString);
     }
     else
     {
-        // SQL Server connection
+        // SQL Server connection - for production
         options.UseSqlServer(
             connectionString,
             sqlOptions =>

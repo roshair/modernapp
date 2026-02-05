@@ -125,7 +125,7 @@ if (elapsed > 5000)
 
 | Metric | Before | After | Improvement |
 |--------|--------|-------|-------------|
-| Query Time (status filter) | ~29 seconds | <100ms | 99.7% faster |
+| Query Time (status filter) | ~29 seconds | <100ms | 99.8% faster |
 | Timeout Rate | 3-5% | <0.1% | 97% reduction |
 | Memory Usage | High (full table loads) | Low (paginated) | ~90% reduction |
 | Connection Pool Issues | Frequent | Rare | ~95% reduction |
