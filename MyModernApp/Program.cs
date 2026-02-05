@@ -9,22 +9,33 @@ builder.Services.AddRazorPages();
 // Add API Controllers
 builder.Services.AddControllers();
 
-// Configure Entity Framework with SQL Server
+// Configure Entity Framework with SQL Server or SQLite
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
-        sqlOptions =>
-        {
-            // Enable retry on transient failures
-            sqlOptions.EnableRetryOnFailure(
-                maxRetryCount: 3,
-                maxRetryDelay: TimeSpan.FromSeconds(5),
-                errorNumbersToAdd: null);
-            
-            // Set command timeout to prevent long-running queries
-            sqlOptions.CommandTimeout(30);
-        });
+    // Use SQLite for development (cross-platform), SQL Server for production
+    if (connectionString!.Contains("Data Source=") && !connectionString.Contains("Server="))
+    {
+        // SQLite connection
+        options.UseSqlite(connectionString);
+    }
+    else
+    {
+        // SQL Server connection
+        options.UseSqlServer(
+            connectionString,
+            sqlOptions =>
+            {
+                // Enable retry on transient failures
+                sqlOptions.EnableRetryOnFailure(
+                    maxRetryCount: 3,
+                    maxRetryDelay: TimeSpan.FromSeconds(5),
+                    errorNumbersToAdd: null);
+                
+                // Set command timeout to prevent long-running queries
+                sqlOptions.CommandTimeout(30);
+            });
+    }
 
     // Enable detailed errors in development
     if (builder.Environment.IsDevelopment())

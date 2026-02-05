@@ -43,3 +43,6 @@ artifacts/
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
+*.db
+*.db-shm
+*.db-wal
