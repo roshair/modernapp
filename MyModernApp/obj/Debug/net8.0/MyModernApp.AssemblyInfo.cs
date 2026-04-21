@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MyModernApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+151f1aa13a4d9d9502ad94e84fcb95c429e6b2d2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb4a796b6fcea218ad6e88aa25e4a81ed3105f05")]
 [assembly: System.Reflection.AssemblyProductAttribute("MyModernApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MyModernApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

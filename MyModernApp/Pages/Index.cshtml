@@ -5,6 +5,37 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome to NIC</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">International Settlement Monitor</h1>
+    <p>Delayed FX-routed international transfers are automatically expedited to stay within the 10-minute SLA.</p>
+</div>
+
+<div class="mt-4">
+    <p><strong>Delayed Before Mitigation:</strong> @Model.DelayedBeforeMitigation</p>
+    <p><strong>Delayed After Mitigation:</strong> @Model.DelayedAfterMitigation</p>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Transaction</th>
+                <th>Type</th>
+                <th>Route</th>
+                <th>Status</th>
+                <th>Initiated (UTC)</th>
+                <th>Settled (UTC)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var transaction in Model.Transactions)
+            {
+                <tr>
+                    <td>@transaction.Id</td>
+                    <td>@(transaction.IsInternational ? "International" : "Domestic")</td>
+                    <td>@transaction.Route</td>
+                    <td>@transaction.Status</td>
+                    <td>@transaction.InitiatedAtUtc.ToString("u")</td>
+                    <td>@(transaction.SettledAtUtc?.ToString("u") ?? "Pending")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
