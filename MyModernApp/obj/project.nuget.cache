@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WN72OfV6DGo=",
+  "dgSpecHash": "AAgU1zLzJuw=",
   "success": true,
-  "projectFilePath": "/home/runner/work/modernapp/modernapp/MyModernApp/MyModernApp.csproj",
-  "expectedPackageFiles": [
-    "/tmp/codeql-scratch-685fb73eb0af0fd7/dbs/csharp/working/packages/microsoft.netcore.app.ref/8.0.25/microsoft.netcore.app.ref.8.0.25.nupkg.sha512",
-    "/tmp/codeql-scratch-685fb73eb0af0fd7/dbs/csharp/working/packages/microsoft.aspnetcore.app.ref/8.0.25/microsoft.aspnetcore.app.ref.8.0.25.nupkg.sha512",
-    "/tmp/codeql-scratch-685fb73eb0af0fd7/dbs/csharp/working/packages/microsoft.netcore.app.host.linux-x64/8.0.25/microsoft.netcore.app.host.linux-x64.8.0.25.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\romaan\\source\\repos\\MyModernApp\\MyModernApp\\MyModernApp.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
