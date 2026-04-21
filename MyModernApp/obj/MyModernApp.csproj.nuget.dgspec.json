@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\romaan\\source\\repos\\MyModernApp\\MyModernApp\\MyModernApp.csproj": {}
+    "/home/runner/work/modernapp/modernapp/MyModernApp/MyModernApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\romaan\\source\\repos\\MyModernApp\\MyModernApp\\MyModernApp.csproj": {
+    "/home/runner/work/modernapp/modernapp/MyModernApp/MyModernApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\romaan\\source\\repos\\MyModernApp\\MyModernApp\\MyModernApp.csproj",
+        "projectUniqueName": "/home/runner/work/modernapp/modernapp/MyModernApp/MyModernApp.csproj",
         "projectName": "MyModernApp",
-        "projectPath": "C:\\Users\\romaan\\source\\repos\\MyModernApp\\MyModernApp\\MyModernApp.csproj",
-        "packagesPath": "C:\\Users\\romaan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\romaan\\source\\repos\\MyModernApp\\MyModernApp\\obj\\",
+        "projectPath": "/home/runner/work/modernapp/modernapp/MyModernApp/MyModernApp.csproj",
+        "packagesPath": "/home/runner/.nuget/packages/",
+        "outputPath": "/home/runner/work/modernapp/modernapp/MyModernApp/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\romaan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/runner/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -68,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
