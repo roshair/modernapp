@@ -7,10 +7,12 @@ namespace MyModernApp.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+        private readonly SettlementEngine _settlementEngine;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(ILogger<IndexModel> logger, SettlementEngine settlementEngine)
         {
             _logger = logger;
+            _settlementEngine = settlementEngine;
         }
 
         public IReadOnlyList<PaymentTransaction> Transactions { get; private set; } = Array.Empty<PaymentTransaction>();
@@ -49,8 +51,7 @@ namespace MyModernApp.Pages
 
             DelayedBeforeMitigation = CountDelayedPendingSettlements(transactions, nowUtc);
 
-            var settlementEngine = new SettlementEngine();
-            settlementEngine.ExpediteDelayedInternationalTransfers(transactions, nowUtc);
+            _settlementEngine.ExpediteDelayedInternationalTransfers(transactions, nowUtc);
 
             DelayedAfterMitigation = CountDelayedPendingSettlements(transactions, nowUtc);
             Transactions = transactions;
@@ -62,7 +63,7 @@ namespace MyModernApp.Pages
                 transaction.IsInternational
                 && transaction.Route == TransferRoute.FxConversionService
                 && transaction.Status == SettlementStatus.PendingSettlement
-                && nowUtc - transaction.InitiatedAtUtc > TimeSpan.FromMinutes(10));
+                && nowUtc - transaction.InitiatedAtUtc > SettlementEngine.InternationalSettlementSla);
         }
     }
 }

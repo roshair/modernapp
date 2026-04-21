@@ -2,7 +2,7 @@ namespace MyModernApp.Payments
 {
     public class SettlementEngine
     {
-        private static readonly TimeSpan InternationalSettlementSla = TimeSpan.FromMinutes(10);
+        public static readonly TimeSpan InternationalSettlementSla = TimeSpan.FromMinutes(10);
 
         public void ExpediteDelayedInternationalTransfers(IEnumerable<PaymentTransaction> transactions, DateTime nowUtc)
         {
