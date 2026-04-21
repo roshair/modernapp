@@ -59,11 +59,7 @@ namespace MyModernApp.Pages
 
         private static int CountDelayedPendingSettlements(IEnumerable<PaymentTransaction> transactions, DateTime nowUtc)
         {
-            return transactions.Count(transaction =>
-                transaction.IsInternational
-                && transaction.Route == TransferRoute.FxConversionService
-                && transaction.Status == SettlementStatus.PendingSettlement
-                && nowUtc - transaction.InitiatedAtUtc > SettlementEngine.InternationalSettlementSla);
+            return transactions.Count(transaction => SettlementEngine.IsDelayedInternationalFxPending(transaction, nowUtc));
         }
     }
 }
